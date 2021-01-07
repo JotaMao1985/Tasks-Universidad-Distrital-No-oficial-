@@ -1,9 +1,9 @@
 \documentclass[12pt]{article}
 \newif\ifsmall \smallfalse
 \ifsmall
-  \usepackage[a6paper,hmargin=1.6cm,vmargin=1.9cm]{geometry}
+  \usepackage[a6paper,hmargin=1.6cm,vmargin=1.9cm,landscape]{geometry}
 \else
-  \usepackage[a5paper,hmargin=1.6cm,vmargin=3.7cm]{geometry}
+  \usepackage[a5paper,hmargin=1.6cm,vmargin=3.7cm,landscape ]{geometry}
 \fi
 \usepackage[colorlinks=false]{hyperref}
 \usepackage{transparent,tikz,pgfornament,Rothdn,cinzel}
@@ -26,45 +26,38 @@
 \newcommand{\largevspace}{\vspace{-8mm}}
 \newcommand{\esttime}{\href{https://www.timeanddate.com/time/zone/usa/new-york}{E.S.T.}}
 \newenvironment{fancytext}{%
-  \begin{center}\Rothdnfamily\ifsmall\large\else\LARGE\fi\transparent{0.9}%
+  \begin{center}\Rothdnfamily\ifsmall\HUGE\else\LARGE\fi\transparent{0.9}\color{white}%
   }{%
   \end{center}%
 }
 \newenvironment{plaintext}{%
-  \begin{center}\ifsmall\footnotesize\else\normalsize\fi\obeylines%
+  \begin{center}\ifsmall\footnotesize\else\normalsize\fi\obeylines\color{white}%
   }{%
   \end{center}%
 }
 
 %% ---
 \begin{document}
-\setbackgroundimg{cropped.jpg}%
+\setbackgroundimg{Im/Back_3.jpg}%
 \begin{fancytext}
-  Together with their families,\\[4mm]
-  \largename{THE BRIDE}\\[2mm]
-  \mbox{\tinypgf{11} and \tinypgf{14}}\\[2mm]
-  {\largename{THE GROOM}}\\[3.6mm]
+  To my beloved students,\\[4mm]
+  \largename{ME, AS YOUR PROF}\\[2mm]
+ 
   request the honor of\\
   your presence at\\
-  their wedding ceremony.
+  my always useful class.
 \end{fancytext}
 
 \smallvspace
 \begin{plaintext}
-  0000-00-00~~00:00 \esttime
-  {The Church}
-  {City, ST}
+  Schedule assigned 
+  {Google Meet}
+  {Bogot\'a, DC}
 \end{plaintext}
 
 \largevspace
 \begin{fancytext}
-  Reception to follow
+  Knowledge and wisdom are everything 
 \end{fancytext}
 
-\smallvspace
-\begin{plaintext}
-  0000-00-00~~00:00 \esttime
-  {The Venue}
-  {City, ST}
-\end{plaintext}
 \end{document}
