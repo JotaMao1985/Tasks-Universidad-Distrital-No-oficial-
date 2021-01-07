@@ -1,0 +1,106 @@
+\documentclass[9pt]{article}
+\newif\ifsmall \smallfalse
+\ifsmall
+  \usepackage[a6paper,hmargin=1cm,vmargin=2cm]{geometry}
+\else
+  \usepackage[a5paper,hmargin=1cm,vmargin=2cm]{geometry}
+\fi
+\usepackage[colorlinks=false]{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usepackage{pgfornament}
+\usepackage{eso-pic}
+\usepackage{cinzel}
+\usepackage{libertine}
+\usepackage{inconsolata}
+
+\pagestyle{empty}
+\setlength\parindent{0pt}
+\ifsmall\setlength\parskip{2mm}\else\setlength\parskip{4mm}\fi
+
+\newcommand{\mono}[1]{{\tt\ifsmall\scriptsize\else\normalsize\fi #1}}
+\ifsmall
+  \newcommand{\contactus}[2]{#1\\[1pt]\mbox{\qquad{}#2}}
+\else
+  \newcommand{\contactus}[2]{#1\\[3pt]\mbox{\qquad{}#2}}
+\fi
+\newcommand{\contactbox}[1]{\parbox{\textwidth}{#1}}
+\newcommand{\emailaddr}[2]{\mono{#1$\,$@$\,$#2}}
+\newcommand{\fontref}[2]{\href{http://www.tug.dk/FontCatalogue/#1}{#2}}
+
+%% ---
+\begin{document}
+
+% add border
+\newcommand{\cornerornnumber}{63}
+\newcommand{\AtPageUpperRight}[1]{\AtPageUpperLeft{\put(\LenToUnit{\paperwidth},\LenToUnit{0\paperheight}){#1}}}
+\newcommand{\AtPageLowerRight}[1]{\AtPageLowerLeft{\put(\LenToUnit{\paperwidth},\LenToUnit{0\paperheight}){#1}}}
+\AddToShipoutPictureBG{%
+  \AtPageUpperLeft{\put(0,-25){\pgfornament[width=1.75cm]{\cornerornnumber}}}
+  \AtPageUpperRight{\put(-50,-25){\pgfornament[width=1.75cm,symmetry=v]{\cornerornnumber}}}
+  \AtPageLowerLeft{\put(0,25){\pgfornament[width=1.75cm,symmetry=h]{\cornerornnumber}}}
+  \AtPageLowerRight{\put(-50,25){\pgfornament[width=1.75cm,symmetry=c]{\cornerornnumber}}} }
+
+% title
+\begin{center}
+  \ifsmall\normalsize\else\LARGE\fi\cinzel
+  DETAILS\\[2pt]
+  \begin{tikzpicture}
+    \node (A) at (0,0) {};
+    \node (B) at (3,0) {};
+    \draw (A) to [ornament=84] (B);
+  \end{tikzpicture}
+\end{center}
+
+% body
+\ifsmall\footnotesize\else\large\fi
+
+All are welcome at the ceremony.
+If you would like to bring someone who does not have an invitation, that should
+ be fine but please let us know.
+At the reception, however, space is limited.
+We may host N people and we will reach that limit if everyone who received an
+invitation is able to attend.
+
+{%
+  The Church is on a street in the city.
+  The parking lot is between one street and another nearby street.
+  The main entrance faces a third street.}
+
+{%
+  The Venue is on a street in the city.
+  Our reception will be held in a large room.}
+  For drinks, we will have: an open bar for 1 hour, beer/wine/soda for 4 hours,
+   and a coffee bar.
+  For food, we will have: many appetizers, a short rib entr\'{e}e, and a vegetarian
+   option.
+  Contact us for a discount code to book a room with.
+
+\contactus{Please send questions or regrets by email to:}{%
+  \contactbox{%
+    \emailaddr{groom}{com.com}\newline
+    \emailaddr{bride}{com.com}}}
+
+\contactus{or by mail to:}{%
+  \contactbox{%
+    \mono{123 Main Street \#4}\newline
+    \mono{Anytown ST 12345}}}
+
+\contactus{For more information, visit:}{%
+  \mono{https://}}
+
+\vfill
+
+This invitation was created using \href{http://www.tug.org/mactex/}{\TeX Live 2017}
+and uses the fonts:
+ \fontref{cinzel}{Cinzel},
+ \fontref{rothenburgdecorative}{Rothenberg Decorative},
+ \fontref{linuxlibertine}{Linux Libertine}, and
+ \fontref{inconsolata}{Inconsolata}.
+The border is from the title page of
+ \href{https://www.fromoldbooks.org/DJD-BiblePictures-NewTestament/pages/000-title-Page-border/}{%
+   {\sl\libertine Bible Pictures and Stories}\/ (1892)}
+  via
+ \href{https://www.fromoldbooks.org/}{\mono{fromoldbooks.org}}.
+
+\end{document}
